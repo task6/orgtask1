@@ -1,0 +1,24 @@
+#!/usr/bin/env groovy
+properties([
+   [$class: 'GithubProjectProperty',
+   displayName: '',
+   projectUrlStr: 'https://github.com/task6/orgtask1.git/'],
+   pipelineTriggers([githubPush()])])
+
+pipeline {
+   agent any 
+
+   stages {
+       stage('Build') {
+           steps {
+               sh 'pwd'
+           }
+       }
+       stage('Test'){
+           steps {
+               sh 'java -version'
+               
+           }
+       }
+   }
+}
